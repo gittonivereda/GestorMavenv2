@@ -15,7 +15,7 @@ public class App
     public static void main(String[] args) throws IOException {
         String url = "https://portal.edu.gva.es/46022543/";
         ParserEngine parser = new ParserEngine(url);
-       // parser.crawl(parser.getBaseUrl());
+
         parser.listAllLinks(parser.getBaseUrl());
         System.out.println("Crawler finished. Total URLs: " + parser.getUrlList().size());
     }
