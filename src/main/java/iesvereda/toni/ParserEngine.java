@@ -23,8 +23,8 @@ public class ParserEngine {
 
         Document doc = Jsoup.connect(url).get();
         Elements links = doc.select("a[href]");
-        Elements media = doc.select("img[src]");
-        Elements imports = doc.select("link[href]");
+        Elements media = doc.select("[src]");
+
 
         print("\nMedia: (%d)", media.size());
         for (Element src : media) {
@@ -36,10 +36,7 @@ public class ParserEngine {
                 print(" * %s: <%s>", src.tagName(), src.attr("abs:src"));
         }
 
-        print("\nImports: (%d)", imports.size());
-        for (Element link : imports) {
-            print(" * %s <%s> (%s)", link.tagName(),link.attr("href"), link.attr("rel"));
-        }
+
 
        print("\nLinks: (%d)", links.size());
         for (Element link : links) {
